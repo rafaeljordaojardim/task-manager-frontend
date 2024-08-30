@@ -1,0 +1,30 @@
+<h2>Task List</h2>
+<div *ngIf="isLoggedIn(); else showLogin">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Due Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.title }}</td>
+        <td>{{ task.description }}</td>
+        <td>{{ task.status }}</td>
+        <td>{{ task.dueDate | date }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deleteTask(task.id || '')">Delete</button>
+          <button class="btn btn-primary btn-sm ml-2" (click)="editTask(task)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #showLogin>
+  <p>Please <a routerLink="/login">login</a> to view your tasks.</p>
+</ng-template>
