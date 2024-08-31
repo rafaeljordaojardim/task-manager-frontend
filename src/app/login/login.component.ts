@@ -14,6 +14,12 @@ export class LoginComponent {
 
   constructor(private authService: AuthService, private router: Router) { }
 
+  ngOnInit() {
+    if (this.authService.isLoggedIn()) {
+      this.router.navigate(['/tasks']);
+    }
+  }
+
   onSubmit(): void {
     this.authService.login(this.user).subscribe(
       () => {
