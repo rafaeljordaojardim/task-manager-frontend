@@ -1,0 +1,6 @@
+<h2>Settings</h2>
+<label for="notificationToggle">Notifications:</label>
+<div class="custom-toggle-container">
+    <input type="checkbox" id="notificationToggle" name="notificationToggle" [(ngModel)]="notificationsEnabled" (change)="toggleNotifications()">
+    <span class="slider round" (click)="toggleNotifications()"></span>
+</div>

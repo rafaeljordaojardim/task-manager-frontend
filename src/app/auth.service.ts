@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'http://localhost:5000/api'; // Your Flask API URL
+  private apiUrl = 'http://localhost:5000/api/auth'; // Your Flask API URL
   private refreshTokenTimeout: any;
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -18,10 +18,6 @@ export class AuthService {
       }),
       catchError(this.handleError)
     );
-  }
-
-  ngOnDestroy() {
-    // ...
   }
 
   login(user: User): Observable<any> {
@@ -91,7 +87,7 @@ export class AuthService {
     }
 
     // Assuming your refresh token expires in 14 minutes (adjust as needed)
-    const refreshInterval = 5000; // Refresh 5 seconds before expiry
+    const refreshInterval = 144000; // Refresh 5 seconds before expiry
 
     this.refreshTokenTimeout = setTimeout(() => {
       this.refreshToken().subscribe(

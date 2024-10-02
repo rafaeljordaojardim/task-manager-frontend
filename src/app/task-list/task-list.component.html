@@ -1,6 +1,28 @@
 <h2>Task List</h2>
 <div *ngIf="isLoggedIn(); else showLogin">
-  <table class="table table-striped">
+  <div class="form-row mb-3"> 
+    <div class="col-md-6">
+      <label for="statusFilter" class="form-label">Filter by Status:</label>
+      <select id="statusFilter" class="form-control" (change)="onStatusChange($event)">
+        <option value="All">All</option>
+        <option value="pending">Pending</option>
+        <option value="in_progress">In Progress</option>
+        <option value="completed">Completed</option>
+      </select>
+    </div>
+    
+    <div class="col-md-6">
+      <label for="sortOptions" class="form-label">Sort by:</label>
+      <select id="sortOptions" class="form-control" (change)="onSortChange($event)">
+        <option value="DueDateAsc">Due Date (Ascending)</option>
+        <option value="DueDateDesc">Due Date (Descending)</option>
+        <option value="StatusAsc">Status (Ascending)</option>
+        <option value="StatusDesc">Status (Descending)</option>
+      </select>
+    </div>
+  </div>
+  <hr>
+  <table class="table table-striped" *ngIf="filteredTasks.length; else showEmptyTasks">
     <thead>
       <tr>
         <th>Title</th>
@@ -11,7 +33,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let task of tasks">
+      <tr *ngFor="let task of filteredTasks">
         <td>{{ task.title }}</td>
         <td>{{ task.description }}</td>
         <td>{{ task.status }}</td>
@@ -27,4 +49,8 @@
 
 <ng-template #showLogin>
   <p>Please <a routerLink="/login">login</a> to view your tasks.</p>
+</ng-template>
+
+<ng-template #showEmptyTasks>
+  <h3>No tasks!</h3>
 </ng-template>

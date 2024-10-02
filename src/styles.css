@@ -2,5 +2,61 @@
 
 
 button {
-    margin: 5px;
+  margin: 5px;
+}
+
+/* In your global styles.css or a component-specific CSS file */
+body {
+  /* Add html for consistency */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  /* Align items vertically */
+  min-height: 100vh;
+}
+
+main {
+  /* Assuming your main content is in a <main> tag */
+  flex-grow: 1;
+  /* Allow main content to grow and push the footer down */
+}
+
+footer {
+  /* Your footer styles */
+  width: 100vw;
+
+  margin-top: auto;
+
+}
+
+.custom-toastr {
+  padding: 20px !important;
+  /* Adjust padding as needed */
+  width: 200px !important;
+  /* Adjust width for square shape */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  /* Optional: Enhance shadow */
+
+}
+
+.custom-toastr .toast-title {
+  font-size: 16px;
+  /* Adjust font size as needed */
+}
+
+.custom-toastr .toast-message {
+  font-size: 14px;
+  /* Adjust font size as needed */
+}
+
+.toast-custom {
+
+  top: 80px !important;
+
+  right: 0px !important;
+
+}
+
+.ngx-toastr .toast-success { /* Target success toasts */
+  background-color: lightgreen !important;
 }

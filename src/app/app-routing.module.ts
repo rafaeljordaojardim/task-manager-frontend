@@ -7,6 +7,7 @@ import { TaskCreateComponent } from './task-create/task-create.component';
 import { TaskEditComponent } from './task-edit/task-edit.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AuthGuard } from './auth-guard.service'; // Adjust the path if needed
+import { SettingsComponent } from './settings/settings.component';
 
 // ... other component imports ...
 
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'create', component: TaskCreateComponent, canActivate: [AuthGuard]  },
   { path: 'edit/:id', component: TaskEditComponent, canActivate: [AuthGuard]  },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]  },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthGuard]} 
   // ... other routes ...
 ];
 

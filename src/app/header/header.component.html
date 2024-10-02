@@ -10,6 +10,11 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/create" *ngIf="isLoggedIn()">Create Task</a>
       </li>
+      <li class="nav-item"> 
+        <a class="nav-link" routerLink="/settings" *ngIf="isLoggedIn()">
+          <i class="bi bi-gear-fill"></i> 
+        </a> 
+      </li> 
       <li class="nav-item">
         <a class="nav-link" routerLink="/login" *ngIf="!isLoggedIn()">Login</a>
       </li>

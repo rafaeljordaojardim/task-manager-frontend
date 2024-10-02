@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TaskService } from '../task.service';
 import { Task } from '../models/task';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-task-edit',
@@ -37,7 +38,7 @@ export class TaskEditComponent implements OnInit {
     );
   }
 
-  updateTask() {
+  updateTask(form: NgForm) {
     this.taskService.updateTask(this.task).subscribe(
       (updatedTask) => {
         console.log('Task updated:', updatedTask);
